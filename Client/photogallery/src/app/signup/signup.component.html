@@ -1,0 +1,73 @@
+<div class="container center login mt-5">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input [(ngModel)]="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input [(ngModel)]="password" type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+    <input [(ngModel)]="confirmpassword" type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Name</label>
+    <input [(ngModel)]="name" type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Country</label>
+    <input [(ngModel)]="country" type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button class="btn btn-primary" (click)="signup()">Signup</button>
+  <div *ngIf="signupStatus === false" class="error">Fill all the credentials</div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="container mt-5 mb-5">
+
+  <div class="row d-flex align-items-center justify-content-center">
+
+    <div class="col-md-6">
+
+        <div class="form-input">
+
+            <i class="fa fa-user"></i>
+            <input type="text" class="form-control" placeholder="Name">
+
+        </div>
+
+        <div class="form-input">
+
+          <i class="fa fa-envelope"></i>
+          <input type="text" class="form-control" placeholder="Email address">
+
+        </div>
+
+        <div class="form-input">
+
+          <i class="fa fa-lock"></i>
+          <input type="text" class="form-control" placeholder="password">
+
+        </div>
+
+        <div class="form-input">
+
+          <i class="fa fa-lock"></i>
+          <input type="text" class="form-control" placeholder="confirm password">
+
+        </div>
+
+        <button class="btn btn-primary mt-4 signup">Sign up</button> -->
+

@@ -1,0 +1,46 @@
+
+# in actual code have to put quotes for the variable in testAPI no quotes
+@url = http://localhost:4400
+
+# GET http://localhost:4400/photosapi
+
+GET {{url}}/photosapi
+
+###
+
+GET {{url}}/photosapi/8
+
+###
+ 
+GET {{url}}/employeesapi
+
+
+###
+GET {{url}}/employeessp
+
+ ###
+
+GET {{url}}/employeesapi/3
+
+
+###
+POST {{url}}/login 
+Content-Type: application/json
+
+{
+"email": "prachi@vanarts.com", 
+"password": "654321"
+}
+
+###
+
+POST {{url}}/signup 
+Content-Type: application/json
+
+{
+"mail": "prachi@vanarts.com", 
+"password": "654321",
+"confirmpassword":"654321",
+"name": "Prachi Bapat", 
+"country":"India"
+}
