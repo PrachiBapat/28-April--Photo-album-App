@@ -165,36 +165,49 @@ server.post('/login', (req, res) => {
 
 });
 
+// server.post('/signup', (req, res) => {
+//   let email = req.body.email;
+//   let password = req.body.password;
+//   let name = req.body.name;
+  
+//   let signupQuery = "CALL `newuser`(?, ?, ?)";
+//   db.query(signupQuery, [email, password,name], (error, data) => {
+//     if(error){
+//       res.json({ ErrorMessage: error});
+//     }
+
+//     else{
+//      res.json({ data: data[0], signup: true, message: "Signup success"})
+// }  
+// })   
+// });
+
+
 server.post('/signup', (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-  let confirmpassword = req.body.confirmpassword;
   let name = req.body.name;
-  let country = req.body.country;
-  let signupQuery = 'CALL `signup`(?,?,?,?,?)';
-  db.query(signupQuery, [email, password,confirmpassword,name,country], (error, data) => {
+  
+  let signupQuery = "CALL `newuser`(?,?,?)";
+  db.query(signupQuery, [email, password,name], (error, data,fields) => {
     if(error){
       res.json({ ErrorMessage: error});
     }
     else{
-      if(data[0].length === 0){
-        res.json({ data: data[0], signup: false, message: "Fill all the credentials"})
-      }
-      else{
-        res.json({ 
-            UserID: data[0].UserID, 
-            email: data[0].mail,
-            data: data[0],
-            login: true, 
-            message: "signup successful"});
-           
-      }
-
       
-    }
+        res.json({ signup: true, message: "Signup success"})
+      }
+  
+      
+    
   })
 
 })
+
+
+
+
+
 //Get means client is asking
 //Post is giving some extra information and also asking for data
 

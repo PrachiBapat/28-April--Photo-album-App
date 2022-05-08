@@ -38,9 +38,8 @@ POST {{url}}/signup
 Content-Type: application/json
 
 {
-"mail": "prachi@vanarts.com", 
+"email": "prachi@vanarts.com", 
 "password": "654321",
-"confirmpassword":"654321",
 "name": "Prachi Bapat", 
-"country":"India"
+
 }
