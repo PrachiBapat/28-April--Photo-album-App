@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+
+
 interface Login{
   login: boolean;
   message: string;
+  data: [
+    {
+      UserID:number;
+      email:string;
+      password:string;
+    }
+  ]
 }
 
 interface signup{
+  newuser: boolean;
   signup:boolean;
   message:string;
 }
@@ -17,6 +26,9 @@ export class CommonService {
   [x: string]: any;
   private loginURL = "http://localhost:4400/login";
   private signupURL = "http://localhost:4400/signup";
+  private userURL = "http://localhost:4400/user";
+  private updateURL = "http://localhost:4400/updateUser";
+  private deleteURL = "http://localhost:4400/deleteuser";
 
   constructor(private http:HttpClient) { }
 
@@ -42,6 +54,22 @@ export class CommonService {
 
 }
 
+getUser(id:any){
+  return this.http.get<{ user: boolean, message:string, userData: [ { ID:number, email:string, password:string }]}>(this.userURL + "/" + id);
 }
 
 
+updateUser(id:any,email:string,password:string){
+let updateBody ={
+  "ID": id,
+  "email": email,
+  "password": password
+  }
+  return this.http.put<{ update:boolean, message:any  }>(this.updateURL, updateBody);
+}
+
+deleteUser(id:any){
+  return this.http.delete<{deleteUser: any; update:boolean, message:any}>(this.deleteURL + "/" + id);
+}
+
+}

@@ -14,19 +14,25 @@ export class SignupComponent implements OnInit {
   confirmpassword:string = '';
   name:string = '';
   country:string = '';
-  signupStatus = true;
+  signupStatus:boolean = false;
+  signupmessage:any = '';
 
+  // cs is common service
   constructor(private cs : CommonService,private router:Router) { }
 
-  signup(){
-    this.cs.signupService(this.email, this.password,this.confirmpassword,this.name,this.country).subscribe(signupData => {
-      console.log(signupData, signupData.signup);
-      this.signupStatus = signupData.signup;
-      if(signupData.signup){
+  signup(email:any){
+    // this.cs.signupService(this.email, this.password,this.confirmpassword,this.name,this.country).subscribe(signupData => {
+    //   console.log(signupData, signupData.signup);
+    //   this.signupStatus = signupData.signup;
+    //   this.signupStatus = signupData.newuser;
+    //   this.signupmessage = signupData.message;
+      //console.log(signupdata.message.sqlMessage);
 
-        this.router.navigate(['/login']);
-      }
-    })
+      // if(signupData.signup){
+
+      //   this.router.navigate(['/login']);
+      // }
+    // })
   }
 
   ngOnInit(): void {

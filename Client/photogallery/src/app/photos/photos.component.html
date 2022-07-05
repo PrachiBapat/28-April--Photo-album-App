@@ -1,25 +1,64 @@
+
+
 <div class="album py-5 bg-light">
   <div class="container">
+    <!-- As it is given a name over here so it's would display prachi Bapat..Or by default it will
+    display Bill gates which is in printname component. -->
+    <!-- <printname name="Prachi Bapat"></printname> -->
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <!-- <printname [name] ="myname" color="blue"></printname> -->
+    <!-- if you have property name color on the backend -->
+
+    <printname [name] ="myname" [color]="textcolor"></printname>
+
+
+    <div class="row">
+      <div class="col w-50">
+        <div class="mb-3">
+          <label for="albumId" class="form-label">Album ID</label>
+          <input type="text" class="form-control" id="albumId" [(ngModel)]="albumId">
+          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" [(ngModel)]="title">
+        </div>
+        <div class="mb-3">
+          <label for="file_fromC" class="form-label">Photo</label>
+          <input class="form-control" type="file" id="file_fromC" (change)="trackFile($event)">
+        </div>
+        <!-- <div class="mb-3">
+          <label for="tn_file_fromC" class="form-label">Thumbnail</label>
+          <input class="form-control" type="file" id="tn_file_fromC">
+        </div> -->
+        <button class="btn btn-primary" (click)="addNewPhoto()">Submit</button>
+      </div>
+    </div>
+
+
+    <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
+
       <div class="col" *ngFor="let photo of photos">
-        <div class="card shadow-sm">
+        <div class="card shadow-sm" #photocard>
           <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-          <div class="bd-placeholder-img card-img-top" style="background-image:url('{{ photo.thumbnailUrl }}')">
-          <!-- <img src = "https://via.placeholder.com/150/92c952"/> -->
+
+          <div class="bd-placeholder-img card-img-top" style="background-image:url('http://localhost:4400/{{ photo.url }}')">
+            <!-- <img src="https://via.placeholder.com/150/92c952" /> -->
+            <svg (click)="deletePhoto(photo.id, photocard)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-square-fill close" viewBox="0 0 16 16">
+              <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+            </svg>
           </div>
           <div class="card-body">
             <p class="card-text">{{ photo.title }}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-              <!-- <a routerLink="/photos/+{{photo.id}}]">View</a> -->
-              <a [routerLink]="['/photos/', photo.id]">View</a>
-            </div>
-
+                <a [routerLink]="[ '/photos/', photo.id]">View</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
+  </div>
+</div>

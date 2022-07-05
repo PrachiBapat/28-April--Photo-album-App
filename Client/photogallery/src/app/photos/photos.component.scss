@@ -1,4 +1,26 @@
-.card-img-top{
+.card-img-top {
   height: 300px;
   background-size: cover;
+  text-align: right;
+
+}
+
+.close{
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+@keyframes fadeout{
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}
+
+.fadeout{
+  border: 3px solid red;
+  animation: fadeout 2s;
 }

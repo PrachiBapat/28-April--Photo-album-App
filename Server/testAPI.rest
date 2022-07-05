@@ -8,7 +8,7 @@ GET {{url}}/photosapi
 
 ###
 
-GET {{url}}/photosapi/8
+GET http://localhost:4400/photosapi/1
 
 ###
  
@@ -40,6 +40,118 @@ Content-Type: application/json
 {
 "email": "prachi@vanarts.com", 
 "password": "654321",
-"name": "Prachi Bapat", 
-
+"name": "Prachi Bapat"
 }
+
+# ###
+# PUT {{url}/updateUser}
+# Content-Type: application/json
+# {
+#     "ID":10,
+#     "email":"prachi@abc.com",
+#     "password":123
+
+# }
+
+### 
+PUT {{url}}/updateuser 
+Content-Type: application/json
+
+{
+"ID": 2, 
+"email": "p@p.com", 
+"password": "123"
+}
+
+### 
+# log in number when log in
+# # and the number comes from localstorage
+# this is your API endpoint
+
+# GET {{url}}/user/10
+
+###
+DELETE {{url}}/deleteuser
+
+###
+GET {{url}}/user/5
+
+###
+
+POST http://localhost:4400/photosapi
+Content-Type: application/json
+
+{
+    "albumId": 1,
+    "id":10,
+    "title":"New photo test",
+    "url": "URL of the original",
+    "thumbnailUrl": "URL of TB"
+}
+
+### 
+
+PUT http://localhost:4400/photosapi/10
+Content-Type: application/json
+
+{
+    "albumId": 1,
+    "id":10,
+    "title":"Modified TITLE",
+    "url": "https://via.placeholder.com/600/92c952",
+    "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+}
+
+### 
+GET http://localhost:4400/cities
+
+###
+
+GET  http://localhost:4400/photos
+
+###
+GET http://localhost:4400/photos/4
+
+
+# POST- It is used to send data to the server.
+# GET - It is get the data from the server.
+
+### 
+POST http://localhost:4400/photos
+Content-Type: application/json
+
+{
+    "albumId_fromC": 1,
+    "title_fromC": "Spotify Logo",
+    "url_fromC": "Spotify_Logo_RGB_Green.png",
+    "tn_fromC": "tn_Spotify_Logo_RGB_Green.png"
+}
+
+
+### 
+POST http://localhost:4400/upload
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+    
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_fromC"; filename="tn_Spotify_Logo_RGB_Green.png" 
+Content-Type: image/png
+
+< ./tn_Spotify_Logo_RGB_Green.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+DELETE http://localhost:4400/photos/3
+
+
+
+
+# Content-Type: multipart/form-data;
+#  boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+    
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; 
+# name="file"; filename="cla-vocals.png" 
+# Content-Type: image/png
+
+# < ./cla-vocals.png
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW--

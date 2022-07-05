@@ -5,3 +5,10 @@ export interface Photo{
   url:string;
   thumbnailUrl:string
 }
+
+export interface PhotoTB{
+  albumId: number;
+  id:number;
+  title:string;
+  thumbnailUrl:string
+}

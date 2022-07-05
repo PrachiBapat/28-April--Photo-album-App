@@ -1,0 +1,21 @@
+<h1>Update user</h1>
+<div class="container center login mt-5">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input [(ngModel)]="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input [(ngModel)]="password" type="text" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button class="btn btn-primary" (click)="updateUser()">Update Details</button> |  <button class="btn btn-secondary" (click)="deleteUser()">Delete</button>
+ <!-- <div *ngIf="signupstatus">Sign up successful. Please log in <a routerLink="/login">here</a></div>
+ <div *ngIf="!signupstatus">Sorry, something went wrong. Server responded with {{ signupmessage.sqlMessage }}</div> -->
+ <div *ngIf="updateStatus" [style.display]="showMessage" [class.showMessage]>Your details are successfully updated!</div>
+ <div class="errormessage" [style.display]="showMessage" *ngIf="!updateStatus">Something went wrong. Please try again</div>
+</div>
