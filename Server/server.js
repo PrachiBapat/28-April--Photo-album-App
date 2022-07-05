@@ -6,7 +6,7 @@ import cors from 'cors';
 import multer from 'multer';//multer is only used for uploading the file
 //const mysql = require("mysql");
 import fs from 'fs'; 
-import'dot/env/confi';
+import'dotenv/config';
 
 
 // connection with the DB

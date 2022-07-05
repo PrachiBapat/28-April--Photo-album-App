@@ -110,6 +110,12 @@ GET http://localhost:4400/cities
 GET  http://localhost:4400/photos
 
 ###
+
+# Production
+###
+GET  http://localhost:4400/photos
+
+###
 GET http://localhost:4400/photos/4
 
 
